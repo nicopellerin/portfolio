@@ -26,7 +26,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: "Email sent",
+      body: "Email sent!",
     }
   } catch (err) {
     return {
