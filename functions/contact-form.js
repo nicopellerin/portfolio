@@ -16,7 +16,7 @@ exports.handler = async (event) => {
 
   const msg = {
     to: process.env.SEND_GRID_EMAIL,
-    from: email,
+    from: process.env.SEND_GRID_EMAIL,
     subject: subject,
     html: html,
   }
