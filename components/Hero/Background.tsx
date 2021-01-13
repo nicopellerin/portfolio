@@ -20,11 +20,9 @@ const Background = () => {
         zIndex: -2,
       }}
       gl={{
-        powerPreference: 'high-performance',
         alpha: false,
         antialias: false,
         stencil: false,
-        // depth: false,
       }}
       onCreated={({ gl }) => {
         gl.toneMapping = THREE.ACESFilmicToneMapping
