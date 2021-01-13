@@ -1,5 +1,5 @@
-import * as React from "react"
-import styled from "styled-components"
+import * as React from 'react'
+import styled from 'styled-components'
 
 interface Props {
   setToggleDropdown: React.Dispatch<React.SetStateAction<boolean>>
@@ -10,7 +10,7 @@ const NavbarMobile: React.FC<Props> = ({ setToggleDropdown }) => {
     <Wrapper>
       <Container>
         <img src="/logo.svg" alt="logo" width={180} />
-        <div onClick={() => setToggleDropdown(prevState => !prevState)}>
+        <div onClick={() => setToggleDropdown((prevState) => !prevState)}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20">
             <path
               d="M 1 2 C 1 1.448 1.448 1 2 1 L 22 1 C 22.552 1 23 1.448 23 2 L 23 3 C 23 3.552 22.552 4 22 4 L 2 4 C 1.448 4 1 3.552 1 3 Z"
@@ -41,7 +41,6 @@ export default NavbarMobile
 const Wrapper = styled.div`
   position: absolute;
   width: 100%;
-  /* z-index: 30; */
 
   @media (min-width: 500px) {
     display: none;

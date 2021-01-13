@@ -10,7 +10,10 @@ function MyApp({ Component, pageProps }: Props) {
   return (
     <>
       <Head>
-        <meta name="viewport" content="viewport-fit=cover" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
       </Head>
       <Component {...pageProps} />
     </>
