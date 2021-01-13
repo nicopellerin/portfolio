@@ -1,19 +1,19 @@
-import * as React from "react"
-import { useState, useEffect, useRef } from "react"
-import styled from "styled-components"
-import { motion, AnimatePresence } from "framer-motion"
-import { FiSend, FiAlertTriangle } from "react-icons/fi"
-import axios from "axios"
-import { useMedia } from "react-use-media"
+import * as React from 'react'
+import { useState, useEffect, useRef } from 'react'
+import styled from 'styled-components'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FiSend, FiAlertTriangle } from 'react-icons/fi'
+import axios from 'axios'
+import { useMedia } from 'react-use-media'
 
 const ContactForm = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [subject, setSubject] = useState("")
-  const [message, setMessage] = useState("")
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [isSent, setIsSent] = useState(false)
-  const [errors, setErrors] = useState("")
+  const [errors, setErrors] = useState('')
 
   const isDesktop = useMedia({
     minWidth: 500,
@@ -24,12 +24,12 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (hiddenRef?.current.value !== "") {
+    if (hiddenRef?.current.value !== '') {
       return
     }
 
-    if (name === "" || email === "" || subject === "" || message === "") {
-      setErrors("Please fill out all fields")
+    if (name === '' || email === '' || subject === '' || message === '') {
+      setErrors('Please fill out all fields')
       return
     }
 
@@ -43,23 +43,23 @@ const ContactForm = () => {
     }
 
     try {
-      await axios.post("/.netlify/functions/contact-form", body)
+      await axios.post('/.netlify/functions/contact-form', body)
       setIsSent(true)
+      setName('')
+      setEmail('')
+      setSubject('')
+      setMessage('')
     } catch (err) {
-      console.error(err)
+      setErrors('An error occurred. Please try again.')
     } finally {
       setIsSending(false)
-      setName("")
-      setEmail("")
-      setSubject("")
-      setMessage("")
       setTimeout(() => setIsSent(false), 3000)
     }
   }
 
   useEffect(() => {
     if (errors) {
-      setTimeout(() => setErrors(""), 3000)
+      setTimeout(() => setErrors(''), 3000)
     }
   }, [errors])
 
@@ -79,7 +79,7 @@ const ContactForm = () => {
             animate={{ opacity: 1, y: [20, 0] }}
             exit={{ opacity: 0 }}
           >
-            <SuccessMsg>{"Your message was sent successfully :)"}</SuccessMsg>
+            <SuccessMsg>{'Your message was sent successfully :)'}</SuccessMsg>
           </SuccessMsgWrapper>
         ) : (
           <>
@@ -91,7 +91,7 @@ const ContactForm = () => {
                     id="name"
                     name="name"
                     value={name}
-                    onChange={e => setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </InputFieldWrapper>
                 <InputFieldWrapper>
@@ -101,7 +101,7 @@ const ContactForm = () => {
                     type="email"
                     name="email"
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </InputFieldWrapper>
               </InputRow>
@@ -113,7 +113,7 @@ const ContactForm = () => {
                     id="name"
                     name="name"
                     value={name}
-                    onChange={e => setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </InputFieldWrapper>
                 <InputFieldWrapper>
@@ -123,7 +123,7 @@ const ContactForm = () => {
                     type="email"
                     name="email"
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </InputFieldWrapper>
               </>
@@ -135,7 +135,7 @@ const ContactForm = () => {
                   id="subject"
                   name="subject"
                   value={subject}
-                  onChange={e => setSubject(e.target.value)}
+                  onChange={(e) => setSubject(e.target.value)}
                 />
               </InputFieldWrapper>
             </InputRow>
@@ -145,7 +145,7 @@ const ContactForm = () => {
                 id="message"
                 name="message"
                 value={message}
-                onChange={e => setMessage(e.target.value)}
+                onChange={(e) => setMessage(e.target.value)}
               />
             </InputFieldWrapper>
 
@@ -164,7 +164,7 @@ const ContactForm = () => {
       <AnimatePresence>
         {errors && (
           <ErrMsg
-            initial={{ opacity: 0, x: "-50%", y: 20 }}
+            initial={{ opacity: 0, x: '-50%', y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
           >
