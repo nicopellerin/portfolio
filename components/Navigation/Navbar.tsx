@@ -55,6 +55,10 @@ const Wrapper = styled.div`
   position: absolute;
   width: 100%;
 
+  @media (max-width: 1600px) {
+    padding: 0rem 2rem;
+  }
+
   @media (max-width: 500px) {
     display: none;
   }
