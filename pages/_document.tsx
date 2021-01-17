@@ -36,18 +36,18 @@ export default class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <meta
             name="description"
-            content="Créer ton propre journal de bord en ligne. Facile d'utilisation et
-            100% gratuit."
+            content="Based out of Montreal, I'm a full-stack developer with a passion for all things tech.
+            "
           />
-          <meta name="theme-color" content="#9D00E0" />
-          <meta name="og:title" content="monjournaldebord" />
+          <meta name="theme-color" content="#000" />
+          <meta name="og:title" content="Nico Pellerin" />
           <meta name="og:url" content="https://monjournaldebord.ca" />
           <meta
             name="og:description"
-            content="Créer ton propre journal de bord en ligne. Facile d'utilisation et
-            100% gratuit."
+            content="Based out of Montreal, I'm a full-stack developer with a passion for all things tech.
+            "
           />
-          <meta name="og:image" content="/og-image-5.png" />
+          <meta name="og:image" content="/og-image1.png" />
           <link href="/manifest.json" rel="manifest" />
           <link
             rel="apple-touch-icon"
