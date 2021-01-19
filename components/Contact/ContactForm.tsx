@@ -74,12 +74,23 @@ const ContactForm = () => {
 
       <AnimatePresence>
         {isSent ? (
-          <SuccessMsgWrapper
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: [20, 0] }}
-            exit={{ opacity: 0 }}
-          >
-            <SuccessMsg>{'Your message was sent successfully :)'}</SuccessMsg>
+          <SuccessMsgWrapper>
+            <SuccessTitle
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ type: 'spring', damping: 12 }}
+            >
+              {'Your message was successfully sent :)'}
+            </SuccessTitle>
+            <SuccessMsg
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ type: 'spring', damping: 12, delay: 0.2 }}
+            >
+              I will get back to you as soon as possible
+            </SuccessMsg>
           </SuccessMsgWrapper>
         ) : (
           <>
@@ -276,15 +287,23 @@ const ErrMsg = styled(motion.span)`
 `
 
 const SuccessMsgWrapper = styled(motion.div)`
-  min-height: 15rem;
+  min-height: 48.9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 `
 
-const SuccessMsg = styled.h3`
+const SuccessTitle = styled(motion.h3)`
   margin: 0;
   font-size: 3rem;
   color: #cc4bc2;
+  line-height: 1.2;
+`
+
+const SuccessMsg = styled(motion.h5)`
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-top: 2.6rem;
 `
