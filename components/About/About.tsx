@@ -34,7 +34,8 @@ const About = () => {
   }, [])
 
   const description = `Based out of Montreal, I'm a full-stack developer with a passion
-  for all things tech. Self-taught, I enjoy continually learning
+  for all things tech. Currently employed as an application
+  developer, I enjoy continually learning
   new concepts and staying up-to-date with the latest tech in this
   fast-paced environment. When not coding, I love to produce electronic
   music, as well as design stuff. I also recently took an interest in creating audio VST plugins.
@@ -75,11 +76,12 @@ const About = () => {
               <Title>About &mdash;</Title>
               <Description>
                 Based out of Montreal, I'm a full-stack developer with a passion
-                for all things tech. Self-taught, I enjoy continually learning
-                new concepts and staying up-to-date with the latest tech in this
-                fast-paced environment. When not coding, I love to produce
-                electronic music, as well as design stuff. I also recently took
-                an interest in creating audio VST plugins.
+                for all things tech. Currently employed as an application
+                developer, I enjoy continually learning new concepts and staying
+                up-to-date with the latest tech in this fast-paced environment.
+                When not coding, I love to produce electronic music, as well as
+                design stuff. I also recently took an interest in creating audio
+                VST plugins.
               </Description>
               <Description>
                 My goal is to always improve as a programmer and designer, and
