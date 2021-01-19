@@ -8,10 +8,10 @@ exports.handler = async (event) => {
   sgMail.setApiKey(SEND_GRID_API_KEY)
 
   const html = `
-    <h2>name: ${name}</h2>
-    <h3>email: ${email}</h3>
-    <h4>subject: ${subject}</h4>
-    <p>message: ${message}</p>
+    <h2>${name}</h2>
+    <h4>${email}</h4>
+    <h4>${subject}</h4>
+    <p>${message}</p>
   `
 
   const msg = {
