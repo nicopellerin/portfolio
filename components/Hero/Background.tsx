@@ -31,6 +31,7 @@ const Background = () => {
       }}
       onCreated={({ gl }) => {
         gl.toneMapping = THREE.ACESFilmicToneMapping
+        gl.setClearColor(new THREE.Color('#020207'))
       }}
     >
       <React.Suspense fallback={null}>
