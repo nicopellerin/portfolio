@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import styled from 'styled-components'
 import { motion, useSpring } from 'framer-motion'
 
@@ -32,7 +32,7 @@ const Photo = () => {
   )
 }
 
-export default Photo
+export default memo(Photo)
 
 // Styles
 const PersonalImage = styled(motion.div)`
