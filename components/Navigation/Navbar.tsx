@@ -12,7 +12,10 @@ const Navbar = () => {
         <img src="/logo.svg" alt="logo" width={200} />
         <Menu>
           <Link href="#courses">
-            <StyledLink whileHover={{ textDecoration: 'underline' }}>
+            <StyledLink
+              data-scroll
+              whileHover={{ textDecoration: 'underline' }}
+            >
               <FaLaptopCode
                 color="#dd5e98"
                 size={24}

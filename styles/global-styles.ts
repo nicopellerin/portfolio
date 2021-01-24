@@ -12,6 +12,7 @@ body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 html {

@@ -1,6 +1,5 @@
 import { NextComponentType } from 'next'
 import Head from 'next/head'
-
 interface Props {
   Component: NextComponentType
   pageProps: any
