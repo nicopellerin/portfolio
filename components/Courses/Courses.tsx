@@ -49,13 +49,13 @@ const Title = styled.h2`
   font-size: 6.2rem;
 `
 
-const Tagline = styled.h3`
-  font-weight: 500;
+// const Tagline = styled.h3`
+//   font-weight: 500;
 
-  @media (max-width: 500px) {
-    line-height: 1.5em;
-  }
-`
+//   @media (max-width: 500px) {
+//     line-height: 1.5em;
+//   }
+// `
 
 const CardList = styled.div`
   display: grid;
