@@ -100,7 +100,7 @@ const Card: React.FC<Props> = ({
               </a>
             ) : (
               <Button whileHover={{ y: -1 }}>
-                <FiGlobe style={{ marginRight: 7 }} /> Coming soon
+                <FiGlobe style={{ marginRight: 7 }} /> Coming soon!
               </Button>
             )}
             {github ? (
@@ -109,11 +109,7 @@ const Card: React.FC<Props> = ({
                   <FiCode style={{ marginRight: 7 }} /> View source code
                 </ButtonSource>
               </a>
-            ) : (
-              <ButtonSource whileHover={{ y: -1 }}>
-                <FiCode style={{ marginRight: 7 }} /> Private repo
-              </ButtonSource>
-            )}
+            ) : null}
           </ButtonGroup>
         </Content>
       </Container>

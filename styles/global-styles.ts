@@ -11,6 +11,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -20,6 +21,10 @@ html {
 body {
   font-family: "Space Grotesk", sans-serif;
   color: #272730;
+}
+
+[id] {
+  scroll-margin-top: 0.5em;
 }
 
 h1 {

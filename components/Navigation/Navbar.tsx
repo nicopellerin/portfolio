@@ -1,48 +1,62 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 import { FiGithub, FiTwitter, FiInstagram } from 'react-icons/fi'
 import { motion } from 'framer-motion'
+import { FaLaptopCode } from 'react-icons/fa'
 
 const Navbar = () => {
   return (
     <Wrapper>
       <Container>
         <img src="/logo.svg" alt="logo" width={200} />
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr',
-            gridGap: 20,
-          }}
-        >
-          <motion.a
-            whileHover={{ rotate: 7 }}
-            href="https://github.com/nicopellerin"
-            target="_blank"
-            rel="noopener noreferrer"
+        <Menu>
+          <Link href="#courses">
+            <StyledLink whileHover={{ textDecoration: 'underline' }}>
+              <FaLaptopCode
+                color="#dd5e98"
+                size={24}
+                style={{ marginRight: 12 }}
+              />{' '}
+              Courses
+            </StyledLink>
+          </Link>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr 1fr',
+              gridGap: 20,
+            }}
           >
-            <span hidden>Github</span>
-            <FiGithub color="#f4f4f4" size={24} />
-          </motion.a>
-          <motion.a
-            whileHover={{ rotate: 7 }}
-            href="https://twitter.com/nicopellerin_io"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span hidden>Twitter</span>
-            <FiTwitter color="#f4f4f4" size={24} />
-          </motion.a>
-          <motion.a
-            whileHover={{ rotate: 7 }}
-            href="https://www.instagram.com/nicopellerin_io"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span hidden>Instagram</span>
-            <FiInstagram color="#f4f4f4" size={24} />
-          </motion.a>
-        </div>
+            <motion.a
+              whileHover={{ rotate: 7 }}
+              href="https://github.com/nicopellerin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span hidden>Github</span>
+              <FiGithub color="#f4f4f4" size={24} />
+            </motion.a>
+            <motion.a
+              whileHover={{ rotate: 7 }}
+              href="https://twitter.com/nicopellerin_io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span hidden>Twitter</span>
+              <FiTwitter color="#f4f4f4" size={24} />
+            </motion.a>
+            <motion.a
+              whileHover={{ rotate: 7 }}
+              href="https://www.instagram.com/nicopellerin_io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span hidden>Instagram</span>
+              <FiInstagram color="#f4f4f4" size={24} />
+            </motion.a>
+          </div>
+        </Menu>
       </Container>
     </Wrapper>
   )
@@ -74,5 +88,33 @@ const Container = styled.div`
 
   @media (max-width: 500px) {
     padding: 4rem 2rem;
+  }
+`
+
+const Menu = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const StyledLink = styled(motion.a)`
+  font-size: 1.8rem;
+  color: rgba(221, 94, 152, 1);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-right: 6rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 110%;
+      width: 1px;
+      background: rgba(221, 94, 152, 0.5);
+      right: -3rem;
+      top: 0;
+    }
   }
 `

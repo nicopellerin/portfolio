@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { FiGithub, FiTwitter, FiInstagram } from 'react-icons/fi'
+import { FaLaptopCode } from 'react-icons/fa'
 
 import Navbar from '../Navigation/Navbar'
 import Background from './Background'
@@ -89,10 +90,10 @@ const Hero = () => {
         <AnimatePresence>
           {toggleDropdown && (
             <DropdownWrapper
-              initial={{ y: 275, x: '-50%' }}
+              initial={{ y: 300, x: '-50%' }}
               animate={{ y: 0 }}
-              exit={{ y: 275 }}
-              transition={{ type: 'spring', damping: 8, stiffness: 35 }}
+              exit={{ y: 300 }}
+              transition={{ type: 'spring', damping: 18 }}
             >
               <DropdownList
                 variants={listVariants}
@@ -100,6 +101,22 @@ const Hero = () => {
                 animate="show"
                 exit="exit"
               >
+                <DropdownItem
+                  onClick={() => setToggleDropdown(false)}
+                  variants={itemVariants}
+                  style={{
+                    borderBottom: '1px solid rgba(221,94,152, 0.2)',
+                    paddingBottom: '2rem',
+                    marginBottom: '2rem',
+                  }}
+                >
+                  <FaLaptopCode
+                    color="#dd5e98"
+                    size={24}
+                    style={{ marginRight: 15 }}
+                  />
+                  <LinkStyled href="#courses">Courses</LinkStyled>
+                </DropdownItem>
                 <DropdownItem variants={itemVariants}>
                   <LinkStyled
                     href="https://github.com/nicopellerin"
@@ -109,7 +126,7 @@ const Hero = () => {
                     <FiGithub
                       color="#dd5e98"
                       size={24}
-                      style={{ marginRight: 10 }}
+                      style={{ marginRight: 15 }}
                     />{' '}
                     Github
                   </LinkStyled>
@@ -123,7 +140,7 @@ const Hero = () => {
                     <FiTwitter
                       color="#dd5e98"
                       size={24}
-                      style={{ marginRight: 10 }}
+                      style={{ marginRight: 15 }}
                     />{' '}
                     Twitter
                   </LinkStyled>
@@ -137,7 +154,7 @@ const Hero = () => {
                     <FiInstagram
                       color="#dd5e98"
                       size={24}
-                      style={{ marginRight: 10 }}
+                      style={{ marginRight: 15 }}
                     />{' '}
                     Instagram
                   </LinkStyled>
@@ -200,7 +217,7 @@ const Overlay = styled(motion.div)`
 
 const DropdownWrapper = styled(motion.div)`
   position: absolute;
-  height: 27rem;
+  height: 33rem;
   width: 100%;
   background: #112;
   bottom: 0;

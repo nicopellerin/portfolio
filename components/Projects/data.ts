@@ -1,7 +1,7 @@
 export const projectsData = [
   {
     title: "functionsnstuff",
-    image: "/functionsnstuff-demo@2x.png",
+    image: "/functionsnstuff-demo@2x.jpg",
     description:
       `This project started as a way to share developers tips and tutorials in many programming
     languages. It also offers tools I've built, such as a React Button
@@ -17,7 +17,7 @@ export const projectsData = [
   },
   {
     title: "Chattr",
-    image: "/chattr-demo.png",
+    image: "/chattr-demo.jpg",
     description:
       `Chattr is a free 1-to-1 P2P audio/video and chat platform. It provides a secure way of communicating on the web. Besides chatting, you can also watch Youtube videos in-sync with a friend, as well as share your screen. The project is still in its infancy and more features will likely be added.`,
     website: "https://chattr.lol",
