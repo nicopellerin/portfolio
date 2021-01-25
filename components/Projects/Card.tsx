@@ -37,82 +37,76 @@ const Card: React.FC<Props> = ({
 
   return (
     <Wrapper>
-      <Container>
-        <ImageWrapper>
-          <ImageStyled
-            layout
-            src={image}
-            alt="logo"
-            showTechStack={showTechStack ? true : false}
-          />
-          <AnimatePresence>
-            {showTechStack && (
-              <TechStack
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <TechStackList>
-                  {techStack.map(({ logo, tech, width }) => (
-                    <img key={tech} src={logo} alt={tech} width={width} />
-                  ))}
-                </TechStackList>
-              </TechStack>
-            )}
-          </AnimatePresence>
-        </ImageWrapper>
-        <Content>
-          <HeadingWrapper>
-            <Title>{title}</Title>
-            <ViewTechStack
-              onMouseEnter={() => (isDesktop ? setShowTechStack(true) : null)}
-              onMouseLeave={() => (isDesktop ? setShowTechStack(false) : null)}
-              onClick={() =>
-                isDesktop
-                  ? null
-                  : setShowMobileTechStack((prevState) => !prevState)
-              }
+      <ImageWrapper>
+        <ImageStyled
+          layout
+          src={image}
+          alt="logo"
+          showTechStack={showTechStack ? true : false}
+        />
+        <AnimatePresence>
+          {showTechStack && (
+            <TechStack
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              View tech stack
-            </ViewTechStack>
-            {showMobileTechStack && (
               <TechStackList>
-                {techStack.map(({ tech, width }) => (
-                  <img
-                    key={tech}
-                    src={`https://images.weserv.nl/?url=${encodeURI(
-                      `https://nicopellerin.io/icons/${tech}.png`
-                    )}&w=${width / 1.5}`}
-                    alt={tech}
-                    width={width / 2}
-                  />
+                {techStack.map(({ logo, tech, width }) => (
+                  <img key={tech} src={logo} alt={tech} width={width} />
                 ))}
               </TechStackList>
-            )}
-          </HeadingWrapper>
-          <Description>{description}</Description>
-          <ButtonGroup>
-            {website ? (
-              <a href={website} target="_blank" rel="noopener">
-                <Button whileHover={{ y: -1 }}>
-                  <FiGlobe style={{ marginRight: 7 }} /> Visit website
-                </Button>
-              </a>
-            ) : (
-              <Button whileHover={{ y: -1 }}>
-                <FiGlobe style={{ marginRight: 7 }} /> Coming soon!
-              </Button>
-            )}
-            {github ? (
-              <a href={github} target="_blank" rel="noopener">
-                <ButtonSource whileHover={{ y: -1 }}>
-                  <FiCode style={{ marginRight: 7 }} /> View source code
-                </ButtonSource>
-              </a>
-            ) : null}
-          </ButtonGroup>
-        </Content>
-      </Container>
+            </TechStack>
+          )}
+        </AnimatePresence>
+      </ImageWrapper>
+      <HeadingWrapper>
+        <Title>{title}</Title>
+        <ViewTechStack
+          onMouseEnter={() => (isDesktop ? setShowTechStack(true) : null)}
+          onMouseLeave={() => (isDesktop ? setShowTechStack(false) : null)}
+          onClick={() =>
+            isDesktop ? null : setShowMobileTechStack((prevState) => !prevState)
+          }
+        >
+          View tech stack
+        </ViewTechStack>
+        {showMobileTechStack && (
+          <TechStackList>
+            {techStack.map(({ tech, width }) => (
+              <img
+                key={tech}
+                src={`https://images.weserv.nl/?url=${encodeURI(
+                  `https://nicopellerin.io/icons/${tech}.png`
+                )}&w=${width / 1.5}`}
+                alt={tech}
+                width={width / 2}
+              />
+            ))}
+          </TechStackList>
+        )}
+      </HeadingWrapper>
+      <Description>{description}</Description>
+      <ButtonGroup>
+        {website ? (
+          <a href={website} target="_blank" rel="noopener">
+            <Button whileHover={{ y: -1 }}>
+              <FiGlobe style={{ marginRight: 7 }} /> Visit website
+            </Button>
+          </a>
+        ) : (
+          <Button whileHover={{ y: -1 }}>
+            <FiGlobe style={{ marginRight: 7 }} /> Coming soon!
+          </Button>
+        )}
+        {github ? (
+          <a href={github} target="_blank" rel="noopener">
+            <ButtonSource whileHover={{ y: -1 }}>
+              <FiCode style={{ marginRight: 7 }} /> View source code
+            </ButtonSource>
+          </a>
+        ) : null}
+      </ButtonGroup>
     </Wrapper>
   )
 }
@@ -122,10 +116,10 @@ export default Card
 // Styles
 const Wrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `
-const Container = styled.div``
-
-const Content = styled.div``
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -172,7 +166,7 @@ const TechStackList = styled(motion.div)`
 const HeadingWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
 
   @media (max-width: 500px) {
     flex-direction: column;
@@ -198,6 +192,7 @@ const ViewTechStack = styled.span`
   border-radius: 10px;
   color: #cc4bc2;
   cursor: pointer;
+  white-space: nowrap;
 
   @media (max-width: 500px) {
     margin-left: 0;
@@ -209,11 +204,12 @@ const ViewTechStack = styled.span`
 const Description = styled.p`
   font-size: 1.8rem;
   font-weight: 500;
-  margin: 2rem 0 4rem 0;
+  margin: 0rem 0 3rem 0;
+  flex: 1;
+  max-width: 100rem;
 `
 
 const ButtonGroup = styled.div`
-  margin: 3rem 0 0;
   display: flex;
 
   @media (max-width: 500px) {
