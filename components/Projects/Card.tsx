@@ -38,12 +38,14 @@ const Card: React.FC<Props> = ({
   return (
     <Wrapper>
       <ImageWrapper>
-        <ImageStyled
-          layout
-          src={image}
-          alt="logo"
-          showTechStack={showTechStack ? true : false}
-        />
+        <a href={website} target="_blank" rel="noopener">
+          <ImageStyled
+            layout
+            src={image}
+            alt="logo"
+            showTechStack={showTechStack ? true : false}
+          />
+        </a>
         <AnimatePresence>
           {showTechStack && (
             <TechStack
@@ -61,7 +63,9 @@ const Card: React.FC<Props> = ({
         </AnimatePresence>
       </ImageWrapper>
       <HeadingWrapper>
-        <Title>{title}</Title>
+        <a href={website} target="_blank" rel="noopener">
+          <Title>{title}</Title>
+        </a>
         <ViewTechStack
           onMouseEnter={() => (isDesktop ? setShowTechStack(true) : null)}
           onMouseLeave={() => (isDesktop ? setShowTechStack(false) : null)}
