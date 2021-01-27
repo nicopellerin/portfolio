@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Container>
-        <img src="/logo.svg" alt="logo" width={200} />
+        <img src="/logo_new.svg" alt="logo" width={200} />
         <Menu>
           <Link href="#courses">
             <StyledLink
