@@ -12,7 +12,7 @@ import NavbarMobile from '../Navigation/NavbarMobile'
 const listVariants = {
   hidden: {
     opacity: 0,
-    y: 30,
+    y: 15,
   },
   show: {
     opacity: 1,
@@ -29,7 +29,7 @@ const listVariants = {
     opacity: 0,
     transition: {
       type: 'spring',
-      damping: 100,
+      damping: 10,
       stiffness: 80,
       staggerChildren: 0.7,
     },
@@ -39,7 +39,7 @@ const listVariants = {
 const itemVariants = {
   hidden: {
     opacity: 0,
-    y: 30,
+    y: 15,
   },
   show: {
     opacity: 1,
