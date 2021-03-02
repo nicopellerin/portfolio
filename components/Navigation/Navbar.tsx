@@ -21,7 +21,7 @@ const Navbar = () => {
                 size={24}
                 style={{ marginRight: 12 }}
               />{' '}
-              Courses
+              <span>Courses</span>
             </StyledLink>
           </Link>
           <div
@@ -36,6 +36,7 @@ const Navbar = () => {
               href="https://github.com/nicopellerin"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ lineHeight: 1 }}
             >
               <span hidden>Github</span>
               <FiGithub color="#f4f4f4" size={24} />
@@ -45,6 +46,7 @@ const Navbar = () => {
               href="https://twitter.com/nicopellerin_io"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ lineHeight: 1 }}
             >
               <span hidden>Twitter</span>
               <FiTwitter color="#f4f4f4" size={24} />
@@ -54,6 +56,7 @@ const Navbar = () => {
               href="https://www.instagram.com/nicopellerin_io"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ lineHeight: 1 }}
             >
               <span hidden>Instagram</span>
               <FiInstagram color="#f4f4f4" size={24} />
