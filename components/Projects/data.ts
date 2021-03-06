@@ -1,18 +1,17 @@
 export const projectsData = [
   {
-    title: "functionsnstuff",
-    image: "/functionsnstuff-demo@2x.jpg",
+    title: "Coding With Nico",
+    image: "/coding-with-nico.png",
     description:
       `This project started as a way to share developers tips and tutorials in many programming
-    languages. It also offers tools I've built, such as a React Button
-    Generator or an Og:image generator, to help accelerate development.`,
-    website: "https://functionsnstuff.io",
-    github: "https://github.com/nicopellerin/functionsnstuff",
+    languages. It's also a platform where I will share my coding courses.`,
+    website: "https://codingwithnico.com",
+    github: "https://github.com/codingwithnico/website",
     techStack: [
-      { tech: "gatsby", logo: "/icons/gatsby.png", width: 60 },
+      { tech: "nextjs", logo: "/icons/nextjs.png", width: 120 },
       { tech: "react", logo: "/icons/react.png", width: 60 },
       { tech: "typescript", logo: "/icons/typescript.png", width: 60 },
-      { tech: "golang", logo: "/icons/golang.png", width: 120 },
+      { tech: "node", logo: "/icons/nodejs.png", width: 120 },
     ],
   },
   {
