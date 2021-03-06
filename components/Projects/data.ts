@@ -1,7 +1,7 @@
 export const projectsData = [
   {
     title: "Coding With Nico",
-    image: "/coding-with-nico.png",
+    image: "/coding-with-nico.jpg",
     description:
       `This project started as a way to share developers tips and tutorials in many programming
     languages. It's also a platform where I will share my coding courses.`,
