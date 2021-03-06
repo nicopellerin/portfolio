@@ -21,7 +21,7 @@ const Navbar = () => {
                 size={24}
                 style={{ marginRight: 12 }}
               />{' '}
-              <span>Courses</span>
+              <span style={{ fontWeight: 600 }}>Courses</span>
             </StyledLink>
           </Link>
           <div
@@ -117,10 +117,11 @@ const StyledLink = styled(motion.a)`
       content: '';
       position: absolute;
       height: 110%;
-      width: 1px;
-      background: rgba(221, 94, 152, 0.5);
+      width: 2px;
+      background: rgba(221, 94, 152, 0.3);
       right: -3rem;
       top: 0;
+      border-radius: 5px;
     }
   }
 `

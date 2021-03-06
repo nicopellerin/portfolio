@@ -44,6 +44,7 @@ const Card: React.FC<Props> = ({
             src={image}
             alt="logo"
             showTechStack={showTechStack ? true : false}
+            loading="lazy"
           />
         </a>
         <AnimatePresence>
