@@ -65,7 +65,7 @@ const Hero = () => {
     <Wrapper>
       <Navbar />
       <NavbarMobile setToggleDropdown={setToggleDropdown} />
-      <Parallax offset={isDesktop ? 190 : 130} offsetInitial={130}>
+      <Parallax offset={isDesktop ? 100 : 70} offsetInitial={10}>
         <Content
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
