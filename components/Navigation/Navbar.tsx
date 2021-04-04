@@ -92,10 +92,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  /* @media (min-width: 1280px) {
-    padding: 3rem 0rem;
-  } */
 `
 
 const Menu = styled.div`
