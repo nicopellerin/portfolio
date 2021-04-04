@@ -74,6 +74,7 @@ export default Navbar
 const Wrapper = styled.div`
   position: absolute;
   width: 100%;
+  z-index: 2000;
 
   @media (max-width: 1600px) {
     padding: 0rem 2rem;
@@ -87,14 +88,14 @@ const Wrapper = styled.div`
 const Container = styled.div`
   max-width: 130rem;
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 3rem 0rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 500px) {
-    padding: 4rem 2rem;
-  }
+  /* @media (min-width: 1280px) {
+    padding: 3rem 0rem;
+  } */
 `
 
 const Menu = styled.div`

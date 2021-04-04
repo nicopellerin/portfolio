@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { FiGithub, FiTwitter, FiInstagram } from 'react-icons/fi'
-import { FaLaptopCode } from 'react-icons/fa'
+import { FaLaptopCode, FaTimes } from 'react-icons/fa'
+import { useMedia } from 'react-use-media'
 
 import Navbar from '../Navigation/Navbar'
 import Background from './Background'
 import NavbarMobile from '../Navigation/NavbarMobile'
+import Parallax from '../Parallax'
 
 const listVariants = {
   hidden: {
@@ -55,112 +57,130 @@ const itemVariants = {
 const Hero = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false)
 
+  const isDesktop = useMedia({
+    minWidth: 500,
+  })
+
   return (
     <Wrapper>
       <Navbar />
       <NavbarMobile setToggleDropdown={setToggleDropdown} />
-      <AnimatePresence>
-        {toggleDropdown && (
-          <Overlay
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.8 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setToggleDropdown(false)}
-            transition={{ type: 'spring', damping: 18, delay: 0.1 }}
-          />
-        )}
-      </AnimatePresence>
-      <Content
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: 'spring', damping: 6, stiffness: 20 }}
-      >
-        <Title>maker of things.</Title>
-        <Tagline
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+      <Parallax offset={isDesktop ? 190 : 130} offsetInitial={130}>
+        <Content
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ type: 'spring', damping: 6, stiffness: 20 }}
         >
-          <span style={{ color: '#cc4bc2' }}>code</span> +{' '}
-          <span style={{ color: '#DD5E98' }}>music</span> +{' '}
-          <span style={{ color: '#E16F7C' }}>design</span>
-        </Tagline>
-      </Content>
+          <Title>maker of things.</Title>
+          <Tagline
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: 'spring', damping: 6, stiffness: 20 }}
+          >
+            <span style={{ color: '#cc4bc2' }}>code</span> +{' '}
+            <span style={{ color: '#DD5E98' }}>music</span> +{' '}
+            <span style={{ color: '#E16F7C' }}>design</span>
+          </Tagline>
+        </Content>
+      </Parallax>
       <div>
         <AnimatePresence>
           {toggleDropdown && (
-            <DropdownWrapper
-              initial={{ y: 300, x: '-50%' }}
-              animate={{ y: 0 }}
-              exit={{ y: 300 }}
-              transition={{ type: 'spring', damping: 18 }}
-            >
-              <DropdownList
-                variants={listVariants}
-                initial="hidden"
-                animate="show"
-                exit="exit"
+            <>
+              <DropdownWrapper
+                initial={{ y: 300, x: '-50%' }}
+                animate={{ y: 0 }}
+                exit={{ y: 300 }}
+                transition={{ type: 'spring', damping: 18 }}
               >
-                <DropdownItem
-                  onClick={() => setToggleDropdown(false)}
-                  variants={itemVariants}
-                  style={{
-                    borderBottom: '1px solid rgba(221,94,152, 0.2)',
-                    paddingBottom: '2rem',
-                    marginBottom: '2rem',
-                  }}
+                <DropdownList
+                  variants={listVariants}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
                 >
-                  <FaLaptopCode
-                    color="#dd5e98"
-                    size={24}
-                    style={{ marginRight: 15 }}
+                  <DropdownItem
+                    onClick={() => setToggleDropdown(false)}
+                    variants={itemVariants}
+                    style={{
+                      borderBottom: '1px solid rgba(221,94,152, 0.2)',
+                      paddingBottom: '2rem',
+                      marginBottom: '2rem',
+                    }}
+                  >
+                    <FaLaptopCode
+                      color="#dd5e98"
+                      size={24}
+                      style={{ marginRight: 15 }}
+                    />
+                    <LinkStyled href="#courses">Courses</LinkStyled>
+                  </DropdownItem>
+                  <DropdownItem variants={itemVariants}>
+                    <LinkStyled
+                      href="https://github.com/nicopellerin"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FiGithub
+                        color="#dd5e98"
+                        size={24}
+                        style={{ marginRight: 15 }}
+                      />{' '}
+                      Github
+                    </LinkStyled>
+                  </DropdownItem>
+                  <DropdownItem variants={itemVariants}>
+                    <LinkStyled
+                      href="https://twitter.com/nicopellerin_io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FiTwitter
+                        color="#dd5e98"
+                        size={24}
+                        style={{ marginRight: 15 }}
+                      />{' '}
+                      Twitter
+                    </LinkStyled>
+                  </DropdownItem>
+                  <DropdownItem variants={itemVariants}>
+                    <LinkStyled
+                      href="https://twitter.com/nicopellerin_io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FiInstagram
+                        color="#dd5e98"
+                        size={24}
+                        style={{ marginRight: 15 }}
+                      />{' '}
+                      Instagram
+                    </LinkStyled>
+                  </DropdownItem>
+                </DropdownList>
+                <CloseWrapper
+                  initial={{ x: '-50%', y: 100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 100, opacity: 0 }}
+                  transition={{ type: 'spring', damping: 18, delay: 0.1 }}
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  <FaTimes
+                    style={{
+                      fontSize: '2.4rem',
+                      color: '#dd5e98',
+                    }}
                   />
-                  <LinkStyled href="#courses">Courses</LinkStyled>
-                </DropdownItem>
-                <DropdownItem variants={itemVariants}>
-                  <LinkStyled
-                    href="https://github.com/nicopellerin"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FiGithub
-                      color="#dd5e98"
-                      size={24}
-                      style={{ marginRight: 15 }}
-                    />{' '}
-                    Github
-                  </LinkStyled>
-                </DropdownItem>
-                <DropdownItem variants={itemVariants}>
-                  <LinkStyled
-                    href="https://twitter.com/nicopellerin_io"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FiTwitter
-                      color="#dd5e98"
-                      size={24}
-                      style={{ marginRight: 15 }}
-                    />{' '}
-                    Twitter
-                  </LinkStyled>
-                </DropdownItem>
-                <DropdownItem variants={itemVariants}>
-                  <LinkStyled
-                    href="https://twitter.com/nicopellerin_io"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FiInstagram
-                      color="#dd5e98"
-                      size={24}
-                      style={{ marginRight: 15 }}
-                    />{' '}
-                    Instagram
-                  </LinkStyled>
-                </DropdownItem>
-              </DropdownList>
-            </DropdownWrapper>
+                </CloseWrapper>
+              </DropdownWrapper>
+              <Overlay
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.8 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setToggleDropdown(false)}
+                transition={{ type: 'spring', damping: 18, delay: 0.1 }}
+              />
+            </>
           )}
         </AnimatePresence>
       </div>
@@ -185,6 +205,12 @@ const Content = styled(motion.div)`
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 9999;
 `
 
 const Title = styled(motion.h1)`
@@ -211,8 +237,6 @@ const Overlay = styled(motion.div)`
   bottom: 0;
   background: rgba(0, 0, 0, 1);
   opacity: 0;
-  /* backdrop-filter: blur(10px); */
-  /* z-index: 998; */
 `
 
 const DropdownWrapper = styled(motion.div)`
@@ -225,7 +249,7 @@ const DropdownWrapper = styled(motion.div)`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-top: 5px solid #dd5e98;
-  /* z-index: 1; */
+  z-index: 3;
 `
 
 const DropdownList = styled(motion.ul)`
@@ -249,4 +273,21 @@ const LinkStyled = styled.a`
   justify-content: center;
   font-weight: 500;
   letter-spacing: 1.2px;
+`
+
+const CloseWrapper = styled(motion.div)`
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: #112;
+  position: absolute;
+  bottom: 36rem;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 0 0 10px 5px rgba(89, 86, 213, 0.2); */
+  border: 2px solid var(--primaryColor);
+  cursor: pointer;
+  z-index: 2;
 `

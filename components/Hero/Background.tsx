@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { Canvas } from 'react-three-fiber'
+import { Canvas } from '@react-three/fiber'
 import * as THREE from 'three'
-import Stars from './Stars'
 import {
   EffectComposer,
   DepthOfField,
@@ -9,11 +8,11 @@ import {
   Vignette,
 } from '@react-three/postprocessing'
 
+import Stars from './Stars'
+
 const Background = () => {
   return (
     <Canvas
-      colorManagement
-      concurrent
       camera={{
         position: [10, -50, 30],
       }}
@@ -50,8 +49,7 @@ const Background = () => {
             luminanceSmoothing={0.9}
             height={300}
           />
-          {/* <Noise opacity={0.02} /> */}
-          <Vignette eskil={false} offset={0.1} darkness={1.0} />
+          <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
       </React.Suspense>
     </Canvas>

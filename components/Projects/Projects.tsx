@@ -52,12 +52,11 @@ const Title = styled.h2`
   font-size: 6.2rem;
 `
 
-const Tagline = styled.h3`
+const Tagline = styled.p`
+  font-size: 2rem;
   font-weight: 500;
-
-  @media (max-width: 500px) {
-    line-height: 1.5em;
-  }
+  max-width: 80ch;
+  line-height: 1.5em;
 `
 
 const CardList = styled.div`

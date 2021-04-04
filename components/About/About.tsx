@@ -219,6 +219,7 @@ const Description = styled.p`
   font-size: 1.8rem;
   max-width: 90%;
   margin-bottom: 2rem;
+  font-weight: 500;
 
   @media (max-width: 500px) {
     max-width: 100%;
