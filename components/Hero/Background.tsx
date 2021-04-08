@@ -7,12 +7,14 @@ import {
   Bloom,
   Vignette,
 } from '@react-three/postprocessing'
+import { OrbitControls } from '@react-three/drei'
 
 import Stars from './Stars'
 
 const Background = () => {
   return (
     <Canvas
+      shadows
       camera={{
         position: [10, -50, 30],
       }}
@@ -35,6 +37,7 @@ const Background = () => {
     >
       <React.Suspense fallback={null}>
         <Stars />
+        <OrbitControls autoRotate autoRotateSpeed={0.2} />
         <fog attach="fog" args={['#DD5E98', 8, 1]} />
         <directionalLight position={[0, 1, 2]} color="white" />
         <EffectComposer>
