@@ -189,6 +189,7 @@ export default About
 const Wrapper = styled(motion.div)`
   position: relative;
   background: #fff;
+  z-index: 9999;
 `
 
 const Container = styled.div`
