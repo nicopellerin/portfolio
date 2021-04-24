@@ -134,6 +134,8 @@ const ImageWrapper = styled.div`
 
 const ImageStyled = styled(motion.img)`
   max-width: 100%;
+  height: 370px;
+  object-fit: cover;
   border-radius: 5px;
   transition: 300ms opacity ease-in-out;
   opacity: ${(props: { showTechStack: boolean }) =>

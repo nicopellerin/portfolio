@@ -44,7 +44,7 @@ const About = () => {
   designer, and my intent is to apply the same drive I have for
   self-improvement to any projects I work on. 
   
-  On the frontend side, I mostly work in React with Typescript. Designing is mostly done in Framer X. Backend wise, I tend to either use Node.js or Go, and more recently Rust, with MongoDB.
+  On the frontend side, I mostly use React with Typescript. Designing is mostly done in Framer & Figma. Backend wise, I tend to either use Node.js or Go, and more recently Rust, with MongoDB.
   `
 
   return (
@@ -89,9 +89,10 @@ const About = () => {
                 to any projects I work on.
               </Description>
               <Description>
-                On the frontend side, I mostly work in React with Typescript.
-                Designing is mostly done in Framer X. Backend wise, I tend to
-                either use Node.js or Go, and more recently Rust, with MongoDB.
+                On the frontend side, I mostly use React with Typescript.
+                Designing is mostly done in Framer & Figma. Backend wise, I tend
+                to either use Node.js or Go, and more recently Rust, with
+                MongoDB.
               </Description>
               <ButtonWrapper>
                 <AnimateSharedLayout>
