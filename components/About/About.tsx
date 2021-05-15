@@ -3,12 +3,18 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { FiStopCircle, FiPlayCircle } from 'react-icons/fi'
+import { useMedia } from 'react-use-media'
+
 import Photo from './Photo'
 import PhotoMobile from './PhotoMobile'
 
 const About = () => {
   const [robotSpeaking, setRobotSpeaking] = useState(false)
   const [showRibbon, setShowRibbon] = useState(false)
+
+  const isDesktop = useMedia({
+    minWidth: 500,
+  })
 
   let robot
   const textToSpeech = (text: string) => {
@@ -121,8 +127,7 @@ const About = () => {
                 </AnimateSharedLayout>
               </ButtonWrapper>
             </div>
-            <Photo />
-            <PhotoMobile />
+            {isDesktop ? <Photo /> : <PhotoMobile />}
           </Container>
         </div>
       </Wrapper>
