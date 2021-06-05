@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "type-check": "tsc"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^3.4.2",
     "@react-three/drei": "^4.1.1",
     "@react-three/fiber": "^6.0.7",
     "@react-three/postprocessing": "^2.0.2",
