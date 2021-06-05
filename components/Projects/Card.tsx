@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { FiGlobe, FiCode } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useMedia } from 'react-use-media'
+import Image from 'next/image'
 
 interface Props {
   title: string
@@ -18,6 +19,10 @@ interface Tech {
   tech: string
   logo: string
   width: number
+}
+
+interface StyleProps {
+  showTechStack?: boolean
 }
 
 const Card: React.FC<Props> = ({
@@ -38,13 +43,14 @@ const Card: React.FC<Props> = ({
   return (
     <Wrapper>
       <ImageWrapper>
-        <a href={website} target="_blank" rel="noopener">
+        <a href={website} target="_blank" rel="noreferrer">
           <ImageStyled
-            layout
+            height={370}
+            width={600}
             src={image}
             alt="logo"
-            showTechStack={showTechStack ? true : false}
             loading="lazy"
+            showTechStack={showTechStack ? true : false}
           />
         </a>
         <AnimatePresence>
@@ -78,15 +84,8 @@ const Card: React.FC<Props> = ({
         </ViewTechStack>
         {showMobileTechStack && (
           <TechStackList>
-            {techStack.map(({ tech, width }) => (
-              <img
-                key={tech}
-                src={`https://images.weserv.nl/?url=${encodeURI(
-                  `https://nicopellerin.io/icons/${tech}.png`
-                )}&w=${width / 1.5}`}
-                alt={tech}
-                width={width / 2}
-              />
+            {techStack.map(({ tech, width, logo }) => (
+              <img key={tech} src={logo} alt={tech} width={width / 2} />
             ))}
           </TechStackList>
         )}
@@ -126,19 +125,36 @@ const Wrapper = styled.div`
   height: 100%;
 `
 
-const ImageWrapper = styled.div`
+const ViewTechStack = styled.span`
+  margin-left: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: rgba(204, 75, 194, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: #cc4bc2;
+  cursor: pointer;
+  white-space: nowrap;
+
+  @media (max-width: 500px) {
+    margin-left: 0;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+  }
+`
+
+const ImageWrapper = styled(motion.div)`
   position: relative;
   margin-bottom: 0.8rem;
   border-radius: 5px;
 `
 
-const ImageStyled = styled(motion.img)`
+const ImageStyled = styled(Image)`
   max-width: 100%;
   object-fit: cover;
   border-radius: 5px;
-  transition: 300ms opacity ease-in-out;
-  opacity: ${(props: { showTechStack: boolean }) =>
-    props.showTechStack ? 0.08 : 1};
+  opacity: ${(props: StyleProps) => (props.showTechStack ? 0.08 : 1)};
+  transition: 250ms opacity ease-in-out;
 `
 
 const TechStack = styled(motion.div)`
@@ -148,6 +164,7 @@ const TechStack = styled(motion.div)`
   right: 0;
   bottom: 0;
   height: 100%;
+  z-index: 99999;
 `
 
 const TechStackList = styled(motion.div)`
@@ -186,24 +203,6 @@ const Title = styled.h4`
 
   @media (max-width: 500px) {
     font-size: 3.7rem;
-  }
-`
-
-const ViewTechStack = styled.span`
-  margin-left: 2rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  background: rgba(204, 75, 194, 0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  color: #cc4bc2;
-  cursor: pointer;
-  white-space: nowrap;
-
-  @media (max-width: 500px) {
-    margin-left: 0;
-    margin-top: 2rem;
-    font-size: 1.6rem;
   }
 `
 
