@@ -31,12 +31,11 @@ const About = () => {
     typeof window !== 'undefined' && window.speechSynthesis.speak(robot)
   }
 
+  const unloadSpeech = () => window.speechSynthesis.cancel()
+
   useEffect(() => {
-    window.addEventListener('unload', () => window.speechSynthesis.cancel())
-    return () =>
-      window.removeEventListener('unload', () =>
-        window.speechSynthesis.cancel()
-      )
+    window.addEventListener('pagehide', unloadSpeech)
+    return () => window.removeEventListener('pagehide', unloadSpeech)
   }, [])
 
   const description = `Based out of Montreal, I'm a developer with a passion
