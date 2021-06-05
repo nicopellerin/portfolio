@@ -48,7 +48,7 @@ export default class MyDocument extends Document {
             "
           />
           <meta name="og:image" content="/og-image1.png" />
-          <link href="/manifest.json" rel="manifest" />
+          {/* <link href="/manifest.json" rel="manifest" /> */}
           <link
             rel="apple-touch-icon"
             sizes="180x180"
