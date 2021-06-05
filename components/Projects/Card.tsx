@@ -79,9 +79,13 @@ const Card: React.FC<Props> = ({
         </AnimatePresence>
       </ImageWrapper>
       <HeadingWrapper>
-        <a href={website} target="_blank" rel="noopener">
+        {website ? (
+          <a href={website} target="_blank" rel="noopener">
+            <Title>{title}</Title>
+          </a>
+        ) : (
           <Title>{title}</Title>
-        </a>
+        )}
         <ViewTechStack
           onMouseEnter={() => (isDesktop ? setShowTechStack(true) : null)}
           onMouseLeave={() => (isDesktop ? setShowTechStack(false) : null)}
