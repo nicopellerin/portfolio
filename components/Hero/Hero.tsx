@@ -120,6 +120,7 @@ const Hero = () => {
                       href="https://github.com/nicopellerin"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Github"
                     >
                       <FiGithub
                         color="#dd5e98"
@@ -134,6 +135,7 @@ const Hero = () => {
                       href="https://twitter.com/nicopellerin_io"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Twitter"
                     >
                       <FiTwitter
                         color="#dd5e98"
@@ -148,6 +150,7 @@ const Hero = () => {
                       href="https://twitter.com/nicopellerin_io"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Instagram"
                     >
                       <FiInstagram
                         color="#dd5e98"
