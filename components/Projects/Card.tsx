@@ -43,16 +43,25 @@ const Card: React.FC<Props> = ({
   return (
     <Wrapper>
       <ImageWrapper>
-        <a href={website} target="_blank" rel="noreferrer">
+        {website ? (
+          <a href={website} target="_blank" rel="noreferrer">
+            <ImageStyled
+              height={370}
+              width={600}
+              src={image}
+              alt="logo"
+              showTechStack={showTechStack ? true : false}
+            />
+          </a>
+        ) : (
           <ImageStyled
             height={370}
             width={600}
             src={image}
             alt="logo"
-            loading="lazy"
             showTechStack={showTechStack ? true : false}
           />
-        </a>
+        )}
         <AnimatePresence>
           {showTechStack && (
             <TechStack
