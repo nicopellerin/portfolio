@@ -37,6 +37,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               style={{ lineHeight: 1 }}
+              aria-label="Github"
             >
               <span hidden>Github</span>
               <FiGithub color="#f4f4f4" size={24} />
@@ -47,6 +48,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               style={{ lineHeight: 1 }}
+              aria-label="Twitter"
             >
               <span hidden>Twitter</span>
               <FiTwitter color="#f4f4f4" size={24} />
@@ -57,6 +59,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               style={{ lineHeight: 1 }}
+              aria-label="Instagram"
             >
               <span hidden>Instagram</span>
               <FiInstagram color="#f4f4f4" size={24} />

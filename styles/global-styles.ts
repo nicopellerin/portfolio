@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
 * {
@@ -58,7 +58,7 @@ h3 {
   font-weight: 600;
   color: #272730;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 1.1;
   margin-top: 2rem;
   margin-bottom: 0;
 }
