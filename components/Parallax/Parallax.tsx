@@ -1,4 +1,4 @@
-import { ReactNode, useState, useRef, useLayoutEffect } from 'react'
+import { ReactNode, useState, useRef, useEffect } from 'react'
 import {
   motion,
   useViewportScroll,
@@ -29,7 +29,7 @@ const Parallax = ({ children, offset = 100, offsetInitial = 0 }: Props) => {
   )
   const y = useSpring(yRange, { stiffness: 400, damping: 90 })
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const element = ref.current
 
     const onResize = () => {

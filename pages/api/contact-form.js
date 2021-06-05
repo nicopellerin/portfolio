@@ -1,8 +1,8 @@
-const sgMail = require("@sendgrid/mail")
+const sgMail = require('@sendgrid/mail')
 const { SEND_GRID_API_KEY } = process.env
 
-exports.handler = async (event) => {
-  const payload = JSON.parse(event.body)
+export default async (req, res) => {
+  const payload = JSON.parse(req.body)
   const { name, email, subject, message } = payload
 
   sgMail.setApiKey(SEND_GRID_API_KEY)
@@ -24,14 +24,8 @@ exports.handler = async (event) => {
   try {
     await sgMail.send(msg)
 
-    return {
-      statusCode: 200,
-      body: "Email sent!",
-    }
+    return res.status(200).json({ message: 'Email sent!' })
   } catch (err) {
-    return {
-      statusCode: err.code,
-      body: err.message,
-    }
+    return res.status(400).json({ message: err.message })
   }
 }
