@@ -210,7 +210,7 @@ const HeadingWrapper = styled(motion.div)`
   }
 `
 
-const Title = styled.h4`
+const Title = styled.h3`
   font-size: 4.2rem;
   margin: 0;
 
