@@ -55,7 +55,6 @@ const ContactForm = () => {
       setErrors('An error occurred. Please try again.')
     } finally {
       setIsSending(false)
-      setTimeout(() => setIsSent(false), 3000)
     }
   }
 
@@ -230,6 +229,7 @@ const InputFieldWrapper = styled.div`
 
 const Label = styled.label`
   font-size: 1.6rem;
+  font-weight: 600;
   margin-bottom: 5px;
   color: #cc4bc2;
 `
@@ -310,6 +310,6 @@ const SuccessTitle = styled(motion.h3)`
 
 const SuccessMsg = styled(motion.h5)`
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 600;
   margin-top: 2.6rem;
 `
