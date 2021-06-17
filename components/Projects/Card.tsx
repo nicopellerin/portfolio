@@ -13,6 +13,7 @@ interface Props {
   website: string
   github: string
   techStack: Tech[]
+  placeholder: string
 }
 
 interface Tech {
@@ -32,6 +33,7 @@ const Card: React.FC<Props> = ({
   website,
   github,
   techStack,
+  placeholder,
 }) => {
   const [showTechStack, setShowTechStack] = useState(false)
   const [showMobileTechStack, setShowMobileTechStack] = useState(false)
@@ -48,6 +50,8 @@ const Card: React.FC<Props> = ({
             <ImageStyled
               height={370}
               width={600}
+              placeholder="blur"
+              blurDataURL={`data:image/png;base64,${placeholder}`}
               src={image}
               alt="logo"
               showTechStack={showTechStack ? true : false}
@@ -57,6 +61,8 @@ const Card: React.FC<Props> = ({
           <ImageStyled
             height={370}
             width={600}
+            placeholder="blur"
+            blurDataURL={`data:image/png;base64,${placeholder}`}
             src={image}
             alt="logo"
             showTechStack={showTechStack ? true : false}
